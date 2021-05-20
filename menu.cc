@@ -1,69 +1,9 @@
-#include "view.h"
+#include "menu.h"
 
-//#include <Event.hpp>
-
-Gui::Gui()
+Menu::Menu(sf::RenderWindow* window)
 {
-	int i = 0;
-
-	window.create(sf::VideoMode(800, 600), "SEA BUTTLE");
-    	
-	Image hello;
-	hello.loadFromFile("hl.png");
-	hello.createMaskFromColor(Color(0,0,0));
-
-	Texture hellotexture;
-	hellotexture.loadFromImage(hello);
-
-	Sprite hellosprite;
-	hellosprite.setTexture(hellotexture);
-	hellosprite.setPosition(0,-100);
-
-    	while (window.isOpen())
-    	{
-        	Event event;
-        	while (window.pollEvent(event))
-        	{
-			switch(event.type)
-			{
-				case Event::Closed:
-					window.close();
-					break;
-				
-				case Event::MouseButtonPressed:
-					i++;
-					break;
-				default:
-					break;
-			}
-        	}
-
-        	window.clear();      	
-		if (i == 0)
-			window.draw(hellosprite);
-		if (i != 0)
-		{
-			//window.close();
-			//View* v = this;
-			Menu menu(&window);
-		}
-        	window.display();		
-    	}
-}
-
-Gui::~Gui()
-{
-	window.close();
-}
-
-/*View::sf::RenderWindow getWindow()
-{
-	return window;
-}*/
-
-/*void View::drawMenu()
-{
-Texture menuTexture1, menuBackground; //, menuTexture2, menuTexture3, aboutTexture,
+	//v->drawMenu();
+	Texture menuTexture1, menuBackground; //, menuTexture2, menuTexture3, aboutTexture,
 	menuTexture1.loadFromFile("play.png");
 	//menuTexture2.loadFromFile("play.png");
 	//menuTexture3.loadFromFile("play.png");
@@ -107,4 +47,15 @@ Texture menuTexture1, menuBackground; //, menuTexture2, menuTexture3, aboutTextu
 //		window.draw(menu1);
 		//window.draw(menu2);
 		//window.draw(menu3);
-}*/
+		
+		window.display();
+	//}
+	////////////////////////////////////////////////////
+}
+}
+
+
+Menu::~Menu()
+{
+
+}
